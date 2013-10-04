@@ -46,3 +46,22 @@ h1 a {
 	display: block;
 	text-align: center;
 }
+
+.main h2 {
+	background: url("images/ornament.png");
+	font-size: 1.4rem;
+	text-transform: lowercase;
+	text-align: center;
+	margin: .75rem;
+}
+
+.main h2 b {
+	background: url("images/bg.png");
+	padding: 0 1rem;
+	font-weight: normal;
+}
+
+.amp {
+	font-family: Baskerville;
+	font-style: italic;
+}

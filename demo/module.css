@@ -45,3 +45,8 @@ ul.nav i {
 ul {
 	padding: 0;
 }
+
+ol {
+	text-align: center;
+	font-size: .75em;
+}

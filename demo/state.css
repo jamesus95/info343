@@ -26,3 +26,39 @@
 	}
 
 }
+
+@media(max-width: 600px) {
+	.mast, .intro, .main, .footer {
+		float: none;
+		width: auto;
+	}
+
+	h1 {
+		background: none;
+	}
+
+	.figure {
+		width: 25%;
+	}
+
+	.footer {
+		clear: both;
+	}
+
+	ul.nav li {
+		float: left;
+		margin-right: 3%;
+		width: 25%;
+	}
+}
+
+@media(max-width: 400px) {
+	.figure {
+		width: 45%;
+	}
+
+	ul.nav li {
+		float: none;
+		width: 100%;
+	}
+}
