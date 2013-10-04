@@ -1,0 +1,24 @@
+html {
+	
+}
+
+body {
+	background:E4E4E4;
+	color:#292929;
+	font:Cambria;
+	text-shadow: 0 1px 0 rgba(255, 255, 255 .8);
+}
+
+ol, ul, li {
+	list-style:none;
+}
+
+a {
+	color:#890101;
+	text-decoration:none;
+	transition: 0.2s color linear;
+}
+
+a:hover {
+	color:#DF3030;
+}
