@@ -1,0 +1,28 @@
+@media(min-width: 1300px) {
+	.mast {
+		float: none;
+		width: auto;
+	}
+
+	ul.nav {
+		float: right;
+		text-align: center;
+		width: 66%;
+	}
+
+	ul.nav li {
+		float: left;
+		margin: 3%;
+	}
+
+	h1 {
+		float: left;
+		width: 33%;
+	}
+
+	.figure {
+		margin-right: 3%;
+		width: 13%;
+	}
+
+}
