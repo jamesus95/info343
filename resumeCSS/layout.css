@@ -4,6 +4,9 @@
 .leftside {
 	float: left;
 	width: 18%;
+	border-width: 5px;
+	border-style: solid;
+	border-color: #E8D3A2;
 }
 
 .content {
@@ -16,3 +19,10 @@
 	border-style: outset;
 }
 
+.bottom {
+	width: 100%;
+	position: absolute;
+	bottom: 0px;
+	font-size: 12;
+	color: white;
+}

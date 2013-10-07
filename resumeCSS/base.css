@@ -45,3 +45,7 @@ h2 {
 .content ul,p {
 	opacity: 1;
 }
+
+.bottom p {
+	text-align: center;
+}
