@@ -1,0 +1,31 @@
+/* James Murphree
+   CSS module */
+
+.leftside img {
+	max-width: 100%;
+	max-height: 250px;
+}
+
+.leftside nav ul li {
+	width: 100%;
+	float: left;
+	text-align: center;
+}
+
+.contentinner {
+	margin: 1rem;
+}
+
+.leftside a {
+	border-style: solid;
+	border-width: 3px;
+	border-color: white;
+}
+
+.leftside li {
+	margin: .4rem;
+}
+
+.topbar {
+	background-color: #363C74;
+}

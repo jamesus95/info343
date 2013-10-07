@@ -1,0 +1,47 @@
+/* James Murphree
+   CSS Base */
+
+html {
+	background: url("images/uwback.jpg");
+}
+
+h1 {
+	color: #E8D3A2;
+	font-size: 3rem;
+	background-color: #363C74;
+	text-align: center;
+}
+
+ul {
+	list-style: none;
+}
+
+nav a {
+	color: white;
+	text-decoration: none;
+	border-color: white;
+}
+
+nav a:hover {
+	color: #E8D3A2;
+	border-color: #E8D3A2;
+	transition: .5s;
+}
+
+h2 {
+	color: #363C74;
+}
+
+.contentinner {
+	background-color: white;
+	opacity: .8;
+	color: black;
+	padding: .3rem 1rem;
+	border-width: 5px;
+	border-color: #E8D3A2;
+	border-style: solid;
+}
+
+.content ul,p {
+	opacity: 1;
+}
