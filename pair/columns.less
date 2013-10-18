@@ -1,0 +1,43 @@
+
+body {
+	padding: 0% 10%;
+}
+
+.floatDivs(@div, @innerDivs) {
+	
+	#@{div} div {
+		float: left;
+		max-width: ((100% - 4% * @innerDivs) / @innerDivs);
+		padding: 0% 4% 0% 0%;
+		.mediaAdjust();
+	}
+}
+
+.floatDivs(@div, @innerDivs, @firstSize) {
+	@correctDivSpace: @innerDivs + @firstSize - 1;
+	@divSpace: 100% - 4% * @innerDivs;
+	@individualDivSpace: @divSpace / @correctDivSpace;
+	
+	#@{div} div {
+		float: left;
+		max-width: @individualDivSpace * @firstSize;
+		padding: 0% 4% 0% 0%;
+		.mediaAdjust();
+	}
+	
+	#@{div} .col4 {
+		max-width: @individualDivSpace;
+		.mediaAdjust();
+	}
+}
+
+.mediaAdjust() {
+	@media(max-width: 700px) {
+		max-width: 100%;
+	}
+}
+
+.floatDivs(main,4);
+.floatDivs(second,3);
+.floatDivs(third,3,2);
+.floatDivs(fourth,2,3);
