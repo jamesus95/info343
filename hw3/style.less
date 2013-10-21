@@ -1,0 +1,101 @@
+@percent: 1%;
+
+html {
+	background-color: green;
+}
+
+.leftside {
+	float: left;
+	max-width: 20%;
+}
+
+.content {
+	float: right;
+	max-width: 80%;
+}
+
+.floatDivs(@div, @number) {
+	@space: (100% - (@percent * 5 * @number));
+	@width: (@space / @number);
+	.@{div} div {
+		float: left;
+		max-width: @width;
+		.border;
+	}
+}
+
+.floatDivs(@div, @number, @w) {
+	@width: @w;
+	.@{div} div {
+		float: left;
+		max-width: @width;
+		.border;
+	}
+}
+
+.border {
+	border-style: ridge;
+	border-width: @percent;
+	padding: @percent;
+	margin-right: 5px;
+}
+
+.border(@color) {
+	border-color: @color;
+	border-style: ridge;
+	border-width: 5px;
+	padding: 5px;
+	margin: 5px;
+	background-color: blue;
+}
+
+.border(@color, @size) {
+	border-color: @color;
+	border-style: ridge;
+	border-width: @size;
+	padding: @size;
+	margin: @size;
+	background-color: yellow;
+}
+
+.title(fancy, @color) {
+	font-style: italic;
+	color: @color;
+}
+
+.title(bold, @color) {
+	color: @color;
+	font-weight: bold; 
+} 
+
+.one div, .twoA div, .onet div {
+	.border;
+}
+
+.pic {
+	float: left;
+	.border(blue);
+}
+
+#four, #two {
+	.border(red, 10px);
+}
+
+.floatDivs(two,2);
+.floatDivs(three,3);
+.floatDivs(tall,5,100%);
+.floatDivs(twot,5,100%);
+.floatDivs(tall2,5);
+
+.fancy {
+	.title(fancy, blue);
+}
+
+.bold {
+	.title(bold, red);
+}
+
+.tall {
+	max-width: 20%;
+	float: left;
+}
