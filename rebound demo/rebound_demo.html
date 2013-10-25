@@ -38,7 +38,100 @@
             }
         </style>
         <script language="JavaScript">
-	   // here be dragons
+            var ball;
+            var paddle;
+            var score;
+            var scoreTotal;
+            var paddleLeft = 228;
+            var ballLeft = 200;
+            var ballTop = 4;
+            var dx = 6;
+            var dy = 6;
+            var timer;
+
+            function init() {
+                ball = document.getElementById("ball");
+                paddle = document.getElementById("paddle");
+                score = document.getElementById("score");
+                scoreTotal = 0;
+
+                document.onkeydown = keyListener;
+
+                start();
+            }
+
+            function keyListener(event) {
+                if (event.keyCode == 37 && paddleLeft > 0) {
+                    paddleLeft -= 4;
+                    paddle.style.left = paddleLeft + 'px';
+                } if (event.keyCode == 39 && paddleLeft < 436) {
+                    paddleLeft += 4;
+                    paddle.style.left = paddleLeft + 'px';
+                }
+            }
+
+            function start() {
+                detectCollision();
+                renders();
+
+                if (ballTop < 470) {
+                    timer = setTimeout('start()', 50);
+                } else {
+                    gameOver();
+                }
+            }
+
+            function detectCollision() {
+                if (collisionX()) {
+                    dx *= -1;
+                }
+
+                if (collisionY()) {
+                    dy *= -1;
+                }
+            }
+
+            function renders() {
+                moveBall();
+            }
+
+            function collisionX() {
+                if (ballLeft < 0 || ballLeft > 486) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            function collisionY() {
+                if (ballTop < 0) {
+                    return true;
+                } else if (ballTop > 450) {
+                    if (ballLeft > paddleLeft && ballLeft < paddleLeft + 64) {
+                        scoreTotal++;
+                        score.innerHTML = 'Score: ' + scoreTotal;
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } else {
+                    return false;
+                }
+            }
+
+            function moveBall() {
+                ballLeft += dx;
+                ballTop += dy;
+                ball.style.top = ballTop + 'px';
+                ball.style.left = ballLeft + 'px';
+            }
+
+            function gameOver() {
+                clearTimeout(timer);
+                score.innerHTML += "    GameOver";
+                score.style.backgroundColor = 'rgb(128,0,0)';
+            }
+
         </script>
   
     </head>
