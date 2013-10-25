@@ -45,8 +45,8 @@
             var paddleLeft = 228;
             var ballLeft = 200;
             var ballTop = 4;
-            var dx = 6;
-            var dy = 6;
+            var dx = 10;
+            var dy = 10;
             var timer;
 
             function init() {
@@ -62,10 +62,10 @@
 
             function keyListener(event) {
                 if (event.keyCode == 37 && paddleLeft > 0) {
-                    paddleLeft -= 4;
+                    paddleLeft -= 10;
                     paddle.style.left = paddleLeft + 'px';
                 } if (event.keyCode == 39 && paddleLeft < 436) {
-                    paddleLeft += 4;
+                    paddleLeft += 10;
                     paddle.style.left = paddleLeft + 'px';
                 }
             }
