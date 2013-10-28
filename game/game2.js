@@ -12,7 +12,7 @@ function init() {
 	makeHTMLBoard();
 	setBoard();
 	document.getElementById('winner').innerHTML = 'Have fun playing checkers.  NOTE: You can\'t double jump!';
-	pieces = new Array(1, 1);
+	pieces = new Array(12, 12);
 	handlers.push(addHandler(document.getElementById('gamespace'), 'click', move));
 }
 
