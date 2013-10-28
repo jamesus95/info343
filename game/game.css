@@ -1,0 +1,29 @@
+#gamespace {
+	height: 400px;
+	width: 400px;
+	top: 100px;
+	left: 100px;
+	position: absolute;
+	border-width: 2px;
+	border-color: grey;
+	border-style: solid;
+}
+
+.squarew {
+	background-color: white;
+	float: left;
+	width: 50px;
+	height: 50px;
+}
+
+.square {
+	background-color: black;
+	float: left;
+	width: 50px;
+	height: 50px;
+}
+
+html {
+	background-color: blue;
+	font-size: 2rem;
+}
