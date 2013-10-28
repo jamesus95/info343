@@ -11,7 +11,7 @@ var pieces;
 function init() {
 	makeHTMLBoard();
 	setBoard();
-	document.getElementById('winner').innerHTML = 'Have fun playing checkers.  NOTE: You can\'t double jump!';
+	document.getElementById('winner').innerHTML = 'Have fun playing checkers. Click to select a piece and click again to place it. NOTE: You can\'t double jump!';
 	pieces = new Array(12, 12);
 	handlers.push(addHandler(document.getElementById('gamespace'), 'click', move));
 }
@@ -152,8 +152,12 @@ function move(event) {
 			}
 			if (turn == 'red') {
 				turn = 'black';
+				document.getElementsByTagName('html')[0].style.backgroundColor = 'black';
+				document.getElementsByTagName('html')[0].style.color = 'red';
 			} else {
 				turn = 'red';
+				document.getElementsByTagName('html')[0].style.backgroundColor = 'red';
+				document.getElementsByTagName('html')[0].style.color = 'black';
 			}
 		}
 	}
