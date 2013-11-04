@@ -1,0 +1,199 @@
+<!doctype html>
+
+<html>
+
+	<head>
+		<script src="jquery-1.9.1.js"></script>
+		<script src="jquery-ui-1.10.3.custom.min.js"></script>
+		<script src="http://nicolahibbert.com/demo/liteAccordion/js/liteaccordion.jquery.js"></script>
+	
+		<link href="http://nicolahibbert.com/demo/liteAccordion/css/liteaccordion.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="jquery-ui-1.10.3.custom.css">
+
+		<script>
+		var clicks = 0;
+		$(function() {
+			$(".draggable").draggable();
+		});
+		$(function() {
+			$("#sorting").sortable();
+			$("#sorting").disableSelection();
+		});
+		$(function() {
+			$('#accordion').liteAccordion({
+                        containerWidth:400,
+                        pauseOnHover : true,
+                        rounded : true,
+                        enumerateSlides : true                    
+                });
+		});
+
+		function countUp(event) {
+			if (clicks == 100) {
+				$("#accordion").fadeIn();
+				$("#list").fadeOut();
+				clicks = 0;
+			} else if (clicks == 50) {
+				$("#accordion").fadeOut();
+				$("#list").fadeIn();
+				clicks++;
+			} else {
+				clicks++;
+			}
+			$("#progressbar").progressbar({
+				value: clicks
+			});
+		}
+
+		var clickHandle = addHandler(document, "click", countUp);
+
+
+		function linkEventHandler(node, event, handler) {
+			if (typeof node.addEventListener == 'function')
+				node.addEventListener(event, handler, false);
+			else
+				node.attachEvent('on' + event, handler);
+		}
+
+		function normaliseEvent(event) {
+			if (!event.stopPropagation) {
+				event.stopPropagation = function() {this.cancelBubble = true;};
+				event.preventDefault = function() {this.returnValue = false;};
+			}
+			if (!event.stop) {
+				event.stop = function() {
+					this.stopPropagation();
+					this.preventDefault();
+				};
+			}
+			if (event.srcElement && !event.target)
+				event.target = event.srcElement;
+			if ((event.toElement || event.fromElement) && !event.relatedTarget)
+				event.relatedTarget = event.toElement || event.fromElement;
+			if (event.clientX != undefined && event.pageX == undefined) {
+				event.pageX = event.clientX + document.body.scrollLeft;
+				event.pageY = event.clientY + document.body.scrollTop;
+			}
+			if (event.type == "keypress") {
+				if (event.charCode === 0 || event.charCode == undefined)
+					event.character = String.fromCharCode(event.keyCode);
+				else
+					event.character = String.fromCharCode(event.charCode);
+			}
+			return event;
+		}
+
+		function addHandler(node, type, handler) {
+			function wrapHandler(event) {
+				handler(normaliseEvent(event || window.event), node);
+			}
+			linkEventHandler(node, type, wrapHandler);
+			return {node: node, type: type, handler: wrapHandler};
+		}
+		</script>
+
+		<style>
+			#sorting {
+				background-color: red;
+			}
+			
+			ul {
+				margin: 0;
+				padding: 0px;
+			}
+			li {
+				list-style: none;
+				text-align: center;
+			}
+			#list {
+				display: inline-block;
+			}
+			#listborder {
+				padding: 40px;
+				background-color: blue;
+			}
+
+			.outside {
+				background-color: orange;
+			}
+
+			#progressbar {
+				height: 15px;
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+
+	<div id="main">
+		<div id="list" class="draggable">
+			<div id="listborder">
+				<ul id="sorting">
+					<li>Number A</li>
+					<li>Number B</li>
+					<li>Number C</li>
+					<li>Letter 1</li>
+					<li>Letter 2</li>
+					<li>Letter 3</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="draggable" id="progressbar">
+		</div>
+
+		<div class="draggable" id="accordion">
+	    <ol>
+	        <li>
+	            <h2 class="ui-state-default">Slide One</h2>
+	            <div class="outside">
+	                <div class="inside">
+	                Next
+	                </div>
+	            </div>
+	        </li>
+	        <li>
+	           <h2 class="ui-state-default">Slide Two</h2>
+	            <div class="outside">
+	                <div class="inside">
+	                	NEXT
+					</div>
+	            </div>
+	        </li>
+	        <li>
+	            <h2 class="ui-state-default">Slide Three</h2>
+	            <div class="outside">
+	                <div class="inside">
+	                <img src="stephen_colbert.jpg">
+	                </div>
+	            </div>
+	        </li>
+	        <li>
+	            <h2 class="ui-state-default">Slide Four</h2>
+	            <div class="outside">
+	                <div class="inside">
+	                	PREVIOUS
+	                </div>
+	            </div>
+	        </li>
+	        <li>
+	            <h2 class="ui-state-default">Slide Five</h2>
+	            <div class="outside">
+	                <div class="inside">
+						Previous            
+	                </div>
+	            </div>
+	        </li>
+	    </ol>
+	    
+		</div>
+
+		
+
+	</div>
+
+	</body>
+
+</html>
