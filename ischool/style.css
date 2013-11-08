@@ -1,0 +1,23 @@
+#leftbar, #rightbar {
+	height: 100%;
+	background-color: black;
+}
+
+.container, body, html, .row {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+#content {
+	background-color: blue;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+#title {
+	text-align: center;
+	background-color: red;
+}
